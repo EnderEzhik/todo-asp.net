@@ -1,6 +1,44 @@
-@todo_asp.net_HostAddress = http://localhost:5083
+@todo-asp.net_HostAddress = https://localhost:7116
+# @todo_HostAddress = https://localhost:7116
+@todo_HostAddress = http://localhost:5083
 
-GET {{todo_asp.net_HostAddress}}/weatherforecast/
+GET {{todo_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+POST {{todo_HostAddress}}/api/todoitems
+Content-Type: application/json
+
+{
+  "name": "learn c++",
+  "isComplete": false
+}
+
+###
+
+GET {{todo_HostAddress}}/api/todoitems
+
+###
+
+@id=2
+GET {{todo_HostAddress}}/api/todoitems/{{id}}
+
+###
+
+@id=1
+PUT {{todo_HostAddress}}/api/todoitems/{{id}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "learn c++",
+  "isComplete": true
+}
+
+###
+
+@id=1
+DELETE {{todo_HostAddress}}/api/todoitems/{{id}}
 
 ###

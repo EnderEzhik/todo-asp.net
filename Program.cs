@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using todo_asp.net.Models;
 
 namespace todo_asp.net
 {
@@ -12,6 +14,7 @@ namespace todo_asp.net
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
 
             var app = builder.Build();
 
